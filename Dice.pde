@@ -1,4 +1,6 @@
 int totalNum;
+int loopNum = 0;
+int cheatCode = 0;
 void setup()
 {
   size(400,400);
@@ -22,20 +24,35 @@ void draw()
       die.roll();
       die.show();
       totalNum += die.num;
-    }
+    }}
+  if (loopNum == 3 || loopNum%56 == 7 || cheatCode == 11) {
+    reRoll();//rigged taste of freedom
   }
+  cheatCode = 0; //the house always wins
   fill(240,211,35);
   noStroke();
   rect(125,370,150,25);
   stroke(0);
   fill(0);
   textSize(20);
-  text(totalNum,200-((textWidth("hahhahahahha")/2)),393); //String.valueOf(totalNum)
-  System.out.println(String.valueOf(totalNum));
+  if (totalNum < 100){text(totalNum,190,393);}
+  else if (totalNum < 1000){text(totalNum,185,393);}
+  else {text(totalNum,180.12,393);}
+    loopNum += 1;
+  if (totalNum >=161) {
+   System.out.println("Congrats"); 
+   System.out.println(loopNum);
+  }
 }
 void mousePressed()
 {
   redraw();
+}
+
+void keyPressed()
+{
+  cheatCode +=1;
+  System.out.println(cheatCode);
 }
 class Die //models one single dice cube
 {
@@ -79,5 +96,22 @@ class Die //models one single dice cube
     //ellipse(dieX+35,dieY+35,8,8); //bottomright
     //ellipse(dieX+25,dieY+15,8,8); //topcenter
     //ellipse(dieX+25,dieY+35,8,8); //bottomcenter
+  }
+}
+
+void reRoll() {
+  totalNum = 0;
+  for (int y = 15; y<345; y+=60){
+    for (int x = 20; x<350; x+= 60) {
+      Die die = new Die(x,y);
+      while (die.num <5){
+      die.roll();}
+      if ((int)(Math.random() *6000)+1 == 1){die.num = 1;}
+      if ((int)(Math.random() *543)+1 == 1){die.num = 2;}
+      if ((int)(Math.random() *300)+1 == 1){die.num = 3;}
+      if ((int)(Math.random() *60)+1 == 1){die.num = 4;}
+      die.show();
+      totalNum += die.num;
+    }
   }
 }
