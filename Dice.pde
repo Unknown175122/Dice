@@ -39,10 +39,10 @@ void draw()
   else if (totalNum < 1000){text(totalNum,185,393);}
   else {text(totalNum,180.12,393);}
     loopNum += 1;
-  if (totalNum >=161) {
-   System.out.println("Congrats"); 
-   System.out.println(loopNum);
-  }
+  //if (totalNum >=161) {
+  // System.out.println("Congrats"); 
+  // System.out.println(loopNum);
+  //}
 }
 void mousePressed()
 {
@@ -52,7 +52,7 @@ void mousePressed()
 void keyPressed()
 {
   cheatCode +=1;
-  System.out.println(cheatCode);
+  //System.out.println(cheatCode);
 }
 class Die //models one single dice cube
 {
