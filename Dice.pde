@@ -30,7 +30,7 @@ void draw()
   stroke(0);
   fill(0);
   textSize(20);
-  text(totalNum,200-((textWidth(String.valueOf(totalNum))/2)),393);
+  text(totalNum,200-((textWidth("hahhahahahha")/2)),393); //String.valueOf(totalNum)
   System.out.println(String.valueOf(totalNum));
 }
 void mousePressed()
@@ -81,4 +81,3 @@ class Die //models one single dice cube
     //ellipse(dieX+25,dieY+35,8,8); //bottomcenter
   }
 }
-
